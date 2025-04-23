@@ -7,6 +7,14 @@ class Account{
             throw new Error("This cannot be stanciated")
         }
         this.balance = balance
+
+        if (localStorage.getItem("balance") === null || isNaN(parseFloat(localStorage.getItem("balance")))) {
+      this.balance = 0;
+      localStorage.setItem("balance", 0)
+    } else {
+      this.balance = parseFloat(localStorage.getItem("balance"));
+        }
+        
     }
 
     execute(){
